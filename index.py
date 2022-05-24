@@ -298,6 +298,7 @@ def send_message(message):
 def send_message(message):
     bot.reply_to(message, "I will recommend starting with C++")
 
+
 @server.route('/' + token, methods=['POST'])
 def getMessage():
     json_string = request.get_data().decode('utf-8')
@@ -309,7 +310,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https:atona.herokuapp.com/' + token)
+    bot.set_webhook(url='https://atona.herokuapp.com/' + token)
     return "!", 200
 
 
