@@ -1,7 +1,10 @@
 import telebot
 import os
+from flask import Flask, request
 from telebot import types
 from dotenv import load_dotenv
+
+server = Flask(__name__)
 
 load_dotenv()
 
@@ -295,4 +298,3 @@ def send_message(message):
     bot.reply_to(message, "I will recommend starting with C++")
 
 
-bot.polling()
