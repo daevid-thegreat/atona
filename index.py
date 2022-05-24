@@ -8,7 +8,7 @@ server = Flask(__name__)
 
 load_dotenv()
 
-token = str(os.getenv("API_KEY"))
+token = "5206417777:AAGbqmq538gaGPvBCbgM_uY0vxD2PDPlhw0"
 
 bot = telebot.TeleBot(os.getenv("API_KEY"), parse_mode='None')
 
