@@ -8,6 +8,7 @@ server = Flask(__name__)
 
 load_dotenv()
 
+token = str(os.getenv("API_KEY"))
 
 bot = telebot.TeleBot(os.getenv("API_KEY"), parse_mode='None')
 
@@ -297,7 +298,7 @@ def send_message(message):
 def send_message(message):
     bot.reply_to(message, "I will recommend starting with C++")
 
-@server.route('/' + os.getenv("API_KEY"), methods=['POST'])
+@server.route('/' + token, methods=['POST'])
 def getMessage():
     json_string = request.get_data().decode('utf-8')
     update = telebot.types.Update.de_json(json_string)
@@ -308,7 +309,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https:atona.herokuapp.com/' + os.getenv("API_KEY"))
+    bot.set_webhook(url='https:atona.herokuapp.com/' + token)
     return "!", 200
 
 
